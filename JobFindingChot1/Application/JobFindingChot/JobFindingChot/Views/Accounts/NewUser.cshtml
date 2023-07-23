@@ -1,0 +1,151 @@
+﻿@model JobFindingChot.Models.AccountMV
+@{
+    ViewData["Title"] = "Registration";
+}
+
+  
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="contact-title">Registration</h2>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-lg-8">
+                    @using (Html.BeginForm("NewUser","Accounts",FormMethod.Post,
+                         new {
+                             @class="form-contact",
+                             @novalidate="novalidate" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.FullName, new
+                           {
+                               htmlAttributes = new
+                               {
+                                   @class = "form-control valid",
+                                   @type = "text",
+                                   @name = "name",
+                                   @id = "name",
+                                   @placeholder = "Enter User Name",
+                                   @onfocus = "this.placeholder = ''",
+                                   @onblur = "this.placeholder = 'Enter User Name'",
+                                
+                               }
+                           })
+                                @Html.ValidationMessageFor(model => model.FullName,
+                               "",
+                               new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Password, new
+                          {
+                              htmlAttributes = new
+                              {
+                                  @class = "form-control valid",
+                                  @type = "password",
+                                  @name = "password",
+                                  @id = "password",
+                                  @placeholder = "Enter Password",
+                                  @onfocus = "this.placeholder = ''",
+                                  @onblur = "this.placeholder = 'Enter Password'",
+                                 
+                              }
+                          })
+                                @Html.ValidationMessageFor(model => model.Password,
+                               "",
+                               new { @class = "text-danger" })
+
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Phone, new
+                           {
+                               htmlAttributes = new
+                               {
+                                   @class = "form-control valid",
+                                   @type = "tel",
+                                   @name = "phone",
+                                   @id = "phone",
+                                   @placeholder = "Enter PhoneNumber",
+                                   @onfocus = "this.placeholder = ''",
+                                   @onblur = "this.placeholder = 'Enter PhoneNumber'",
+                                  
+                               }
+                           })
+                                @Html.ValidationMessageFor(model => model.Phone,
+                               "",
+                               new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Email, new
+                          {
+                              htmlAttributes = new
+                              {
+                                  @class = "form-control valid",
+                                  @type = "email",
+                                  @name = "email",
+                                  @id = "email",
+                                  @placeholder = "Enter Email",
+                                  @onfocus = "this.placeholder = ''",
+                                  @onblur = "this.placeholder = 'Enter Email'",
+                                 
+                              }
+                          })
+                                @Html.ValidationMessageFor(model => model.Email,
+                               "",
+                               new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div>
+                                <p>Are you JobProvider?</p>
+                                @Html.EditorFor(model => model.AreYouProvider)
+                            </div>
+                        </div>
+
+                    </div>
+                            <div class="form-group mt-3">
+                                <input type="submit" value="Register" class="button boxed-btn" />
+                            </div>
+                        }
+                    </div>
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-home"></i></span>
+                        <div class="media-body">
+                            <h3>Tasneem Plaz, Peshawar.</h3>
+                            <p>KPK, Post Code 25000</p>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                        <div class="media-body">
+                            <h3>+92 314 307 6781</h3>
+                            <p>Mon to Fri 9am to 6pm</p>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-email"></i></span>
+                        <div class="media-body">
+                            <h3>support@ilyasoft.net</h3>
+                            <p>Send us your query anytime!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
